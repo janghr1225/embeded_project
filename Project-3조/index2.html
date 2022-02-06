@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head>
+    <meta charset = "utf-8">
+        <title> Local_NOW </title>
+        <style>
+            table{
+                width: 100%
+                border: 1px solid #444444;
+            }
+            th, td{
+                border: 1px solid #444444;
+            }
+            h1 {
+               margin: 20px;
+               padding: 20px 0px;
+               text-align: center;
+               text-transform: uppercase;
+               font-family: "Arial Black", sans-serif;
+               font-size: 60px;
+               font-weight: bold;
+            }
+            .s1{
+            background-color: #0d47a1;
+            color: #ffffff;
+            text-show: 4px 4px 0px #bdbdbd;
+            }
+        </style>
+    </head>
+    
+    <body onload="showClock()" style ="background-color:#d7d3d1">
+        <center>
+        
+        <br><h1 class="s1"> ! Press The Button ! </h1> <hr>
+        </center>
+        
+        <table border=1 width=700 align="center" cellspacing=0 cellpadding="3">
+        
+        <tr>
+            <td width="696" height="30" colspan="2" bgcolor="#bbdefb">
+            <font font="italic">
+            <h2 align="center"> ₍₍ ◝(●˙꒳˙●)◜ ₎₎ Temperature And Humidity </h2>
+            </font>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td width="40%" hight="15" bgcolor="#e3f2fd" align="center">
+                <font color="navy">
+                    <h2> Local DATE </h2>
+                </font>
+            </td>
+            
+            <td width="60%" align="center" bgcolor="#e3f2fd">
+                <font color="#8a3213">
+                    <h2> {{time}} </h2>
+                </font>
+            </td>
+            
+        </tr>
+        
+        <tr>
+            <td width="40%" hight="15" bgcolor="#e3f2fd" align="center">
+                <font color=navy> <h2> Local Time </h2></font>
+            </td>
+            
+            <td width="60%" align="center" bgcolor="#e3f2fd">
+                <h2> <div id="divClock" class="clock" style ="color:#8a3213"> </div> </h2>
+            </td>
+        </tr>
+        
+        <tr>
+            <td weight=696 align="center" hight="15" bgcolor="#e3f2fd" colspan="2">
+            <div style = "color:red">
+                <h3 align="center" bgcolor="#e3f2fd"> {{DHT}} </h3>
+            </div>
+        </tr>
+            
+        </table>
+             
+<script language="javascript">
+
+    function showClock(){
+        var currentDate = new Date();
+        var divClock = document.getElementById("divClock");
+   
+        var msg = currentDate.getHours()+"시 "
+        msg += currentDate.getMinutes()+"분 ";
+        msg += currentDate.getSeconds()+"초 ";
+       
+        divClock.innerText = msg;
+        setTimeout(showClock,1000);      
+    }
+</script>
+
+    <center>
+    <hr>
+    <table border=0 width=0>
+        <tr>
+            <td align=center>
+                <input type ="button" value="▶ NEW Load ◀" onclick="window.location.href=window.location.href">
+            </td>
+        </tr>
+    </table>
+
+    </center>
+</body>
+</html>
